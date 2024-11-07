@@ -1,0 +1,19 @@
+[[edge_functions]]
+  path = "/hub/*"
+  function = "uberflip-reverse-proxy"
+
+[[edge_functions]]
+  path = "/hub/"
+  function = "uberflip-reverse-proxy"
+
+[[headers]]
+  for = "/*"
+[headers.values]
+  Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[redirects]]
+  from = "/products/autodesk-plangrid-build"
+  to = "/products/plangrid/"
+  status = 301
+  force = true
+  query = { pgr = ":pgr" }
